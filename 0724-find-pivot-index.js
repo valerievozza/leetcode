@@ -47,20 +47,29 @@
  * @param {number[]} nums
  * @return {number}
  */
- var pivotIndex = function(nums) {
-  
+ function pivotIndex(nums) {
+  // sum of values to the left of the whole array is zero because there are no nums there
   let leftSum = 0
-  let rightSum = nums.reduce((a, b) => a + b)
+  // right sum is sum of all nums in array
+  let rightSum = nums.reduce((a,b) => a + b)
 
+  // loop through array
   for (let i = 0; i < nums.length; i++) {
+    // at the current index, subtract that value from the rightSum
     rightSum -= nums[i]
+    // if left & right are equal
     if (leftSum === rightSum) {
+      // return current index
       return i
     }
+    // after iteration, add current index to leftSum
     leftSum += nums[i]
   }
+  // if there is no index that satisfies the conditions, return -1
   return -1
-};
+}
+
+console.log(pivotIndex([2,-1,1], 0))
 
 console.log(pivotIndex([1,7,3,6,5,6]), 3)
 console.log(pivotIndex([1,2,3]), -1)
