@@ -32,30 +32,42 @@
 // strings s & t
 // is s a substring of t? exist in t with some or no chars removed, without rearranging the chars
 
-// filter
-
-var isSubsequence = function(s, t) {
+function isSubsequence(s,t) {
+  // if s is longer than t it cannot be a subset of t
   if (s.length > t.length) {
     return false
   }
+  // if s is empty, it is a subset of t
   if (s.length === 0) {
     return true
   }
+  // start counters for looping through s & t at 0
   let sCounter = 0
   let tCounter = 0
+
+  // loop through strings
   while (tCounter < t.length) {
+    // if char at current index in s is not equal to the char in current index in t
     if (s[sCounter] !== t[tCounter]) {
+      // check char at current index in s against char at next index in t
       tCounter++
+      // if they do match
     } else {
+      // move on to the next char in each string
       tCounter++
       sCounter++
     }
-    if (sCounter === s.length - 1 && s[sCounter]===t[tCounter]) {
+    // if you're at the last index of s and the current char of s is equal to the current char of t, return true
+    // don't need to keep comparing -- you've already checked that each char in s is present in t in order (though not necessarily consecutive)
+    if (sCounter === s.length - 1 && s[sCounter] === t[tCounter]) {
       return true
     }
   }
+  // if the above conditions are not true, return false
   return false
-};
+}
+
+console.log(isSubsequence("abc", "ahbgdc", true))
 
 // console.log(isSubsequence('acb', 'ahbgdc'), false)
 console.log(isSubsequence('ab', 'baab'), true)
