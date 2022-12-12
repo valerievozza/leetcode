@@ -25,50 +25,9 @@
  * @param {string} digits
  * @return {string[]}
 */
-// var letterCombinations = function(digits) {
-  
-//   // map digits to letters
-//   let nums = {
-//     '2': ['a','b','c'],
-//     '3': ['d','e','f'],
-//     '4': ['g','h','i'],
-//     '5': ['j','k','l'],
-//     '6': ['m','n','o'],
-//     '7': ['p','q','r','s'],
-//     '8': ['t','u','v'],
-//     '9': ['w','x','y','z']
-//   }
 
-//   // declare empty array to hold all combincations of strings
-//   let result = []
-
-//   // if no digits, return empty array
-//   if (digits.length === 0) return []
-
-//   // depth first search approach
-//   // need current position in string digits & current string being built
-//   const depthFirstSearch = (position, string) => {
-//     // if we have a current string as long as the digits string push completed string to results array
-//     if (position === digits.length) {
-//       result.push(string)
-//     // otherwise keep building current string
-//     // look up chars that match current position
-//     // then call new recursive functions down each of those paths
-//     } else {
-//       let letters = nums[digits[position]]
-//       for (let i = 0; i < letters.length; i++) {
-//         depthFirstSearch(position + 1, string + letters[i])
-//       }
-//     }
-//   }
-//   depthFirstSearch(0,'')
-//   return result
-// };
-
-
-const letterCombinations = function(digits) {
-
-  let map = {
+var letterCombinations = function(digits) {
+  const map = {
     '2': ['a','b','c'],
     '3': ['d','e','f'],
     '4': ['g','h','i'],
@@ -93,7 +52,7 @@ const letterCombinations = function(digits) {
       }
     }
   }
-  dfs(0,'')
+  dfs(0,"")
   return res
 }
 
