@@ -28,6 +28,22 @@
  * @return {number}
 */
 var majorityElement = function(nums) {
+  // let elem = {},
+  //     count = 0
+  //     majElem = nums[0]
+
+  // for (const num of nums) {
+  //   elem[num] = elem[num] + 1 || 1
+  // }
+
+  // for (const n in elem) {
+  //   if (elem[n] > count) {
+  //     count = elem[n]
+  //     majElem = n
+  //   }
+  // }
+  // return majElem
+
   let elem = {},
       count = 0,
       majElem = nums[0]
@@ -42,7 +58,7 @@ var majorityElement = function(nums) {
       majElem = n
     }
   }
-  return majElem
+  return
 };
 
 console.log(majorityElement([3,2,3]), 3)
