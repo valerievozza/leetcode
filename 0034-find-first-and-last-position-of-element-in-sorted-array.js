@@ -33,8 +33,23 @@
  * @return {number[]}
  */
 var searchRange = function(nums, target) {
-    let firstIndex = nums.indexOf(target)
-    let lastIndex = nums.lastIndexOf(target)
+    let firstIndex = -1
+    let lastIndex = -1
+
+    for (let i = 0; i < nums.length; i++) {
+      if (nums[i] === target) {
+        firstIndex = i
+        break;
+      }
+    }
+
+    for (let j = nums.length - 1; j >= 0; j--) {
+      if (nums[j] === target) {
+        lastIndex = j
+        break;
+      }
+    }
+
     return [firstIndex, lastIndex]
 };
 
